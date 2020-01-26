@@ -14,7 +14,30 @@
           <target>1.7</target>
         </configuration>
       </plugin>
-    </plugins>
+      <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <archive>
+              <manifest>
+                <mainClass>com.github.kanesada2.OADWConnect.OAEWConnect</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+          <executions>
+            <execution>
+              <id>sample</id>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
   </build>
   <repositories>
     <repository>
@@ -49,11 +72,13 @@
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
       <version>1.15.2-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.oracle.jdbc</groupId>
       <artifactId>ojdbc8</artifactId>
       <version>19.3.0.0</version>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>

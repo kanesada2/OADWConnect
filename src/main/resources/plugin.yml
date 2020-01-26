@@ -1,0 +1,4 @@
+name: OADWConnect
+main: com.github.kanesada2.OADWConnect.OADWConnect
+version: 0.0.1
+api-version: 1.13

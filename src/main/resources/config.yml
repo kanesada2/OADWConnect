@@ -1,0 +1,7 @@
+# Oracle Autonomous Data Warehouse Connection settings
+
+DBName_Medium: ''
+TNS_Admin: ''
+DB_User: ''
+DB_Pass: ''
+

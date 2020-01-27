@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.kanesada2</groupId>
-  <artifactId>OADWConnect</artifactId>
+  <artifactId>OADBConnect</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <plugins>
@@ -23,7 +23,7 @@
             </descriptorRefs>
             <archive>
               <manifest>
-                <mainClass>com.github.kanesada2.OADWConnect.OAEWConnect</mainClass>
+                <mainClass>com.github.kanesada2.OADBConnect.OADBConnect</mainClass>
               </manifest>
             </archive>
           </configuration>
@@ -79,6 +79,21 @@
       <artifactId>ojdbc8</artifactId>
       <version>19.3.0.0</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>oraclepki</artifactId>
+      <version>19.3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>osdt_core</artifactId>
+      <version>19.3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.jdbc</groupId>
+      <artifactId>osdt_cert</artifactId>
+      <version>19.3.0.0</version>
     </dependency>
   </dependencies>
 </project>

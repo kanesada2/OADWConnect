@@ -1,4 +1,4 @@
-name: OADWConnect
-main: com.github.kanesada2.OADWConnect.OADWConnect
+name: OADBConnect
+main: com.github.kanesada2.OADBConnect.OADBConnect
 version: 0.0.1
 api-version: 1.13

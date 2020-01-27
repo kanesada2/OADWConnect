@@ -1,4 +1,4 @@
-package com.github.kanesada2.OADWConnect;
+package com.github.kanesada2.OADBConnect;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,8 +22,9 @@ import java.sql.DatabaseMetaData;
 import org.bukkit.World;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Bukkit;
 
-public class OADWConnect extends JavaPlugin implements Listener{
+public class OADBConnect extends JavaPlugin implements Listener{
 
 	@Override
     public void onEnable() {
@@ -42,20 +43,11 @@ public class OADWConnect extends JavaPlugin implements Listener{
           ods.setURL(DB_URL);    
           ods.setConnectionProperties(info);
           OracleConnection connection = (OracleConnection) ods.getConnection();
-          // Get the JDBC driver name and version 
-          DatabaseMetaData dbmd = connection.getMetaData();       
-          getLogger().info("Driver Name: " + dbmd.getDriverName());
-          getLogger().info("Driver Version: " + dbmd.getDriverVersion());
-          // Print some connection properties
-          getLogger().info("Default Row Prefetch Value is: " + 
-            connection.getDefaultRowPrefetch());
-          getLogger().info("Database Username is: " + connection.getUserName());
-          // Perform a database operation 
           printUsers(connection);
         }catch(SQLException e){
-          getLogger().info(e.getSQLState());
+          getLogger().info(String.valueOf(e.getErrorCode()));
         }
-        getLogger().info("OADWConnect Enabled!");
+        getLogger().info("OADBConnect Enabled!");
     }
 
     @Override
@@ -69,9 +61,9 @@ public class OADWConnect extends JavaPlugin implements Listener{
     // Statement and ResultSet are AutoCloseable and closed automatically. 
     try (Statement statement = connection.createStatement()) {      
       try (ResultSet resultSet = statement
-          .executeQuery("select uuid, name from users")) {
+          .executeQuery("select uuid, name from players")) {
         while (resultSet.next())
-          System.out.println(resultSet.getString(1) + " "
+          Bukkit.getLogger().info(resultSet.getString(1) + " "
               + resultSet.getString(2) + " ");       
       }
     }   
